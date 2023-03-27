@@ -10,15 +10,21 @@ class LoginSignUpScreen extends StatefulWidget {
 
 class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
   bool isSignUpScreen = true;
+  List<String> formList = [];
 
   @override
   void initState() {
     super.initState();
   }
 
-  void handleTap(isSigunUp) {
+  void handleTap(isSignUp) {
     setState(() {
-      isSignUpScreen = isSigunUp;
+      isSignUpScreen = isSignUp;
+      if (isSignUp) {
+        formList = ['email', 'password'];
+      } else {
+        formList = ['username', 'email', 'password'];
+      }
     });
   }
 
@@ -45,7 +51,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           RichText(
-                              text: const TextSpan(children: [
+                              text: TextSpan(children: [
                             TextSpan(
                                 text: 'Welcome',
                                 style: TextStyle(
@@ -53,7 +59,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                                     fontSize: 25,
                                     color: Colors.white)),
                             TextSpan(
-                                text: ' to EOS chat',
+                                text: isSignUpScreen ? ' to EOS chat' : ' back',
                                 style: TextStyle(
                                     letterSpacing: 1.0,
                                     fontSize: 25,
@@ -63,8 +69,10 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                           const SizedBox(
                             height: 5.0,
                           ),
-                          const Text(
-                            'Signup to continue',
+                          Text(
+                            isSignUpScreen
+                                ? 'Signup to continue'
+                                : 'Signin to continue',
                             style: TextStyle(
                                 letterSpacing: 1.0, color: Colors.white),
                           ),
@@ -73,7 +81,9 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                     ))),
             Positioned(
                 top: 150,
-                child: Container(
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeIn,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
@@ -83,7 +93,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                             blurRadius: 15,
                             spreadRadius: 5)
                       ]),
-                  height: 280.0,
+                  height: !isSignUpScreen ? 280.0 : 310,
                   width: MediaQuery.of(context).size.width - 40,
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.only(left: 20.0, right: 20.0),
@@ -145,33 +155,196 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                         ],
                       ),
                       Container(
+                        margin: const EdgeInsets.only(top: 20),
                         child: Form(
                           child: Column(
-                            children: [
-                              TextFormField(
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(
-                                      Icons.person_2_outlined,
-                                      color: Palette.iconColor,
+                            children: !isSignUpScreen
+                                ? [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.email,
+                                            color: Palette.iconColor,
+                                          ),
+                                          hintText: "email",
+                                          hintStyle: TextStyle(
+                                              color: Palette.iconColor),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Palette.textColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Palette.textColor1),
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                          )),
                                     ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Palette.textColor1),
-                                        borderRadius:
-                                            BorderRadius.circular(35)),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Palette.textColor1),
-                                      borderRadius: BorderRadius.circular(35),
-                                    )),
-                              )
-                            ],
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.lock,
+                                            color: Palette.iconColor,
+                                          ),
+                                          hintText: "password",
+                                          hintStyle: TextStyle(
+                                              color: Palette.iconColor),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Palette.textColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Palette.textColor1),
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                          )),
+                                    ),
+                                  ]
+                                : [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.person,
+                                            color: Palette.iconColor,
+                                          ),
+                                          hintText: "User name",
+                                          hintStyle: TextStyle(
+                                              color: Palette.iconColor),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Palette.textColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Palette.textColor1),
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                          )),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.email,
+                                            color: Palette.iconColor,
+                                          ),
+                                          hintText: "email",
+                                          hintStyle: TextStyle(
+                                              color: Palette.iconColor),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Palette.textColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Palette.textColor1),
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                          )),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.lock,
+                                            color: Palette.iconColor,
+                                          ),
+                                          hintText: "password",
+                                          hintStyle: TextStyle(
+                                              color: Palette.iconColor),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Palette.textColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Palette.textColor1),
+                                            borderRadius:
+                                                BorderRadius.circular(35),
+                                          )),
+                                    )
+                                  ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 )),
+            AnimatedPositioned(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn,
+                top: !isSignUpScreen ? 390 : 430,
+                right: 0,
+                left: 0,
+                child: Center(
+                  child: Container(
+                      padding: EdgeInsets.all(15),
+                      height: 90,
+                      width: 90,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                colors: [Colors.lightGreen, Colors.green],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 1))
+                            ]),
+                        child: Icon(
+                          Icons.arrow_forward_outlined,
+                          color: Colors.white,
+                        ),
+                      )),
+                )),
+            Positioned(
+                top: MediaQuery.of(context).size.height - 125,
+                right: 0,
+                left: 0,
+                child: Column(
+                  children: [
+                    Text(
+                      isSignUpScreen ? 'or Signup with' : 'or Signin with',
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    TextButton.icon(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Palette.googleColor,
+                          minimumSize: Size(155, 40),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      label: Text('Google'),
+                      icon: Icon(
+                        Icons.add,
+                      ),
+                    )
+                  ],
+                ))
           ],
         ));
   }
