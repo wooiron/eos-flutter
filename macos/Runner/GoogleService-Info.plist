@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>621933466081-kjhkqv6smab6sm51lhuc5kjnqss2qq8h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.621933466081-kjhkqv6smab6sm51lhuc5kjnqss2qq8h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyChqtNhXidoW00FsjuqCPCiVEJdrtSDoQ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>621933466081</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.eos.eosChatting</string>
+	<key>PROJECT_ID</key>
+	<string>eos-chatting-7cce8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eos-chatting-7cce8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:621933466081:ios:7cbf2d425e151c8afd82a0</string>
+</dict>
+</plist>

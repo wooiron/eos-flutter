@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,30 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAOrsUSNELj2MfyxWPlgt4pB0gEGa2bVUo',
-    appId: '1:251498802868:web:50185b2235dcb4b534b1e1',
-    messagingSenderId: '251498802868',
-    projectId: 'eos-clock-a6511',
-    authDomain: 'eos-clock-a6511.firebaseapp.com',
-    storageBucket: 'eos-clock-a6511.appspot.com',
-    measurementId: 'G-T9KQWRFQDG',
+    apiKey: 'AIzaSyCXRLBUWHp_pNJpPmt_aGG95kaioKOxHWk',
+    appId: '1:621933466081:web:36b64c28a07d63f0fd82a0',
+    messagingSenderId: '621933466081',
+    projectId: 'eos-chatting-7cce8',
+    authDomain: 'eos-chatting-7cce8.firebaseapp.com',
+    storageBucket: 'eos-chatting-7cce8.appspot.com',
+    measurementId: 'G-WENTSR3BCK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA-DgCrpALcc50yM7vyoiChkcTj6QFNFsw',
-    appId: '1:251498802868:android:0a0c84553da590f234b1e1',
-    messagingSenderId: '251498802868',
-    projectId: 'eos-clock-a6511',
-    storageBucket: 'eos-clock-a6511.appspot.com',
+    apiKey: 'AIzaSyCm5k-_RwcfjDMJMm5zlQbcShSCrL6GXBA',
+    appId: '1:621933466081:android:c74918d30a73c210fd82a0',
+    messagingSenderId: '621933466081',
+    projectId: 'eos-chatting-7cce8',
+    storageBucket: 'eos-chatting-7cce8.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC0rM77BKX3dObdT353Fp19W2cexx5e0E8',
-    appId: '1:251498802868:ios:099c6b54690f869a34b1e1',
-    messagingSenderId: '251498802868',
-    projectId: 'eos-clock-a6511',
-    storageBucket: 'eos-clock-a6511.appspot.com',
-    iosClientId: '251498802868-dec29i574mat7fsojqkm67es7e032es8.apps.googleusercontent.com',
+    apiKey: 'AIzaSyChqtNhXidoW00FsjuqCPCiVEJdrtSDoQ0',
+    appId: '1:621933466081:ios:7cbf2d425e151c8afd82a0',
+    messagingSenderId: '621933466081',
+    projectId: 'eos-chatting-7cce8',
+    storageBucket: 'eos-chatting-7cce8.appspot.com',
+    iosClientId: '621933466081-kjhkqv6smab6sm51lhuc5kjnqss2qq8h.apps.googleusercontent.com',
+    iosBundleId: 'com.eos.eosChatting',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyChqtNhXidoW00FsjuqCPCiVEJdrtSDoQ0',
+    appId: '1:621933466081:ios:7cbf2d425e151c8afd82a0',
+    messagingSenderId: '621933466081',
+    projectId: 'eos-chatting-7cce8',
+    storageBucket: 'eos-chatting-7cce8.appspot.com',
+    iosClientId: '621933466081-kjhkqv6smab6sm51lhuc5kjnqss2qq8h.apps.googleusercontent.com',
     iosBundleId: 'com.eos.eosChatting',
   );
 }
